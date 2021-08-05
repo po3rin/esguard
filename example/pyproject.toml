@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "example"
-version = "0.1.0"
+version = "0.1.2"
 description = ""
 authors = ["po3rin"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-esguard = "^0.1.0"
+esguard = "^0.1.2"
 
 [tool.poetry.dev-dependencies]
 
