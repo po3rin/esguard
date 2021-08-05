@@ -14,7 +14,7 @@ You need to launch elasticsearch before quick start.
 from esguard import ESGuard
 
 
-@ESGuard(os_cpu_percent=90, os_mem_used_percent=-1, jvm_mem_heap_used_percent=-1).decotator()
+@ESGuard(os_cpu_percent=95).decotator()
 def mock_func(x):
     return x
         
