@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "esguard"
-version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+version = "0.1.1"
+description = "esguard provides a Python decorator that waits for processing while monitoring the load of Elasticsearch."
+authors = ["abctail30@gmail.com"]
+repository = "http://github.com/po3rin/esguard"
+homepage = "http://github.com/po3rin/esguard"
+readme = "README.md"
+license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
