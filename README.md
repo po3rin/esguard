@@ -4,8 +4,12 @@ esguard provides a Python decorator that waits for processing while monitoring t
 
 ## Quick Start
 
+You need to launch elasticsearch before quick start.
+
 ```python
 from esguard import ESGuard
+
+
 @ESGuard(os_cpu_percent=90, os_mem_used_percent=-1, jvm_mem_heap_used_percent=-1).decotator()
 def mock_func(x):
     return x
