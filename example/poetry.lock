@@ -54,8 +54,8 @@ requests = ["requests (>=2.4.0,<3.0.0)"]
 
 [[package]]
 name = "esguard"
-version = "0.1.0"
-description = ""
+version = "0.1.3"
+description = "esguard provides a Python decorator that waits for processing while monitoring the load of Elasticsearch."
 category = "main"
 optional = false
 python-versions = ">=3.9,<4.0"
@@ -131,7 +131,7 @@ python-versions = ">=3.6"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "80af414056b8af620395c6fa509f80c81b26b9ac4470941f242a2b0fbd27f7da"
+content-hash = "45804169522d8b1de894b1be632097b9077396b555855358f5fa5b01031094bc"
 
 [metadata.files]
 certifi = [
@@ -151,8 +151,8 @@ elasticsearch = [
     {file = "elasticsearch-7.14.0.tar.gz", hash = "sha256:f3ab1454e646170bbc6796b8707e4bff125234391d2acc022221e1c0313becb4"},
 ]
 esguard = [
-    {file = "esguard-0.1.0-py3-none-any.whl", hash = "sha256:2b5f31d8c2601f5f191ad2e39e7359b16617c92bd92cf2c0bf2dbd84f4a01ce3"},
-    {file = "esguard-0.1.0.tar.gz", hash = "sha256:822b02895402b250e05ec85ae6ff44d80fd85318a360d35996a60ca0a86c96c8"},
+    {file = "esguard-0.1.3-py3-none-any.whl", hash = "sha256:bea0e4b32de44875f8e38b9dc147b53e39e71f10575ece3bce63e17a4f3c4e69"},
+    {file = "esguard-0.1.3.tar.gz", hash = "sha256:1502199a963f373af2d8db284252fd7d889f3ba548cb9c91504f603e66481f0d"},
 ]
 idna = [
     {file = "idna-3.2-py3-none-any.whl", hash = "sha256:14475042e284991034cb48e06f6851428fb14c4dc953acd9be9a5e95c7b6dd7a"},

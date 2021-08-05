@@ -2,9 +2,8 @@ from functools import wraps
 import time
 import random
 from typing import Callable, TypeVar, Any
-from abc import ABCMeta, abstractmethod
 from elasticsearch import Elasticsearch
-from logging import Logger, getLogger, INFO, StreamHandler, Formatter
+from logging import Logger
 
 
 T = TypeVar('T')
