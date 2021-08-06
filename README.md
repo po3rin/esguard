@@ -17,7 +17,7 @@ from esguard import ESGuard
 @ESGuard(os_cpu_percent=95).decotator()
 def mock_func(x):
     return x
-        
+
 self.assertEqual(mock_func(1), 1)
 ```
 
@@ -26,7 +26,6 @@ self.assertEqual(mock_func(1), 1)
 You need to launch elasticsearch before testing.
 
 ```sh
-$ docker-compose up -d --build
+$ docker compose up -d --build
 $ poetry run pytest
 ```
-
