@@ -1,11 +1,11 @@
 from functools import wraps
 from logging import Logger
-from typing import Callable, TypeVar, Any
+from typing import Callable, TypeVar, Any, cast
 
 from elasticsearch import Elasticsearch
 from tenacity import Retrying, wait_exponential, wait_random, stop_after_attempt, RetryError
 
-T = TypeVar("T")
+F = TypeVar('F', bound=Callable[..., Any])
 
 
 class Error(Exception):
@@ -65,11 +65,10 @@ class ESGuard:
     def _get_retryer(self):
         return Retrying(wait=wait_exponential(min=self.retry_backoff_sec) + wait_random(min=0, max=1), stop=stop_after_attempt(self.max_retries))
 
-    def decotator(self) -> Callable[[], T]:
+    def decotator(self) -> F:
         retryer = self._get_retryer()
 
-        def _retry(func) -> Callable[[], T]:
-            @wraps(func)
+        def _retry(func: F) -> F:
             def wrapper(*args, **kwargs) -> Any:
                 try:
                     retryer(self._wait)
@@ -77,6 +76,6 @@ class ESGuard:
                     raise MaxRetriesExceededError(f"max retries exceeded {self.max_retries}")
                 return func(*args, **kwargs)
 
-            return wrapper
+            return cast(F, wrapper)
 
         return _retry
