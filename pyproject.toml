@@ -9,7 +9,7 @@ readme = "README.md"
 license = "Apache-2.0"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 elasticsearch = "^7.12.1"
 docker = "^5.0.0"
 six = "^1.16.0"
