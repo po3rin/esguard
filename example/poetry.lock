@@ -19,7 +19,7 @@ unicode_backport = ["unicodedata2"]
 
 [[package]]
 name = "docker"
-version = "5.0.0"
+version = "5.0.1"
 description = "A Python library for the Docker Engine API."
 category = "main"
 optional = false
@@ -54,16 +54,17 @@ requests = ["requests (>=2.4.0,<3.0.0)"]
 
 [[package]]
 name = "esguard"
-version = "0.1.3"
+version = "0.1.5"
 description = "esguard provides a Python decorator that waits for processing while monitoring the load of Elasticsearch."
 category = "main"
 optional = false
-python-versions = ">=3.9,<4.0"
+python-versions = ">=3.7,<4.0"
 
 [package.dependencies]
 docker = ">=5.0.0,<6.0.0"
 elasticsearch = ">=7.12.1,<8.0.0"
 six = ">=1.16.0,<2.0.0"
+tenacity = ">=8.0.1,<9.0.0"
 
 [[package]]
 name = "idna"
@@ -108,6 +109,17 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
+name = "tenacity"
+version = "8.0.1"
+description = "Retry code until it succeeds"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+doc = ["reno", "sphinx", "tornado (>=4.5)"]
+
+[[package]]
 name = "urllib3"
 version = "1.26.6"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -122,16 +134,20 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "websocket-client"
-version = "1.1.0"
+version = "1.2.1"
 description = "WebSocket client for Python with low level API options"
 category = "main"
 optional = false
 python-versions = ">=3.6"
 
+[package.extras]
+optional = ["python-socks", "wsaccel"]
+test = ["websockets"]
+
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9"
-content-hash = "45804169522d8b1de894b1be632097b9077396b555855358f5fa5b01031094bc"
+python-versions = "^3.7"
+content-hash = "1efb280cae90915b589e46f58f8ad7a7ef7f2665664043d5cba9eac1072778d0"
 
 [metadata.files]
 certifi = [
@@ -143,16 +159,16 @@ charset-normalizer = [
     {file = "charset_normalizer-2.0.4-py3-none-any.whl", hash = "sha256:0c8911edd15d19223366a194a513099a302055a962bca2cec0f54b8b63175d8b"},
 ]
 docker = [
-    {file = "docker-5.0.0-py2.py3-none-any.whl", hash = "sha256:fc961d622160e8021c10d1bcabc388c57d55fb1f917175afbe24af442e6879bd"},
-    {file = "docker-5.0.0.tar.gz", hash = "sha256:3e8bc47534e0ca9331d72c32f2881bb13b93ded0bcdeab3c833fb7cf61c0a9a5"},
+    {file = "docker-5.0.1-py2.py3-none-any.whl", hash = "sha256:b88eef725b33c0ed59c67506631bbb09b480b7ca5a739bbbb948b446443fe914"},
+    {file = "docker-5.0.1.tar.gz", hash = "sha256:5aafaec0d2a1de0e32010b43b5eac9f6f851c9db99a46ad32b8e44eeeb55616d"},
 ]
 elasticsearch = [
     {file = "elasticsearch-7.14.0-py2.py3-none-any.whl", hash = "sha256:084979d21cc2955903ecc215bb40b8180207b2bcb5e52ec0ec7dd6f60affd01e"},
     {file = "elasticsearch-7.14.0.tar.gz", hash = "sha256:f3ab1454e646170bbc6796b8707e4bff125234391d2acc022221e1c0313becb4"},
 ]
 esguard = [
-    {file = "esguard-0.1.3-py3-none-any.whl", hash = "sha256:bea0e4b32de44875f8e38b9dc147b53e39e71f10575ece3bce63e17a4f3c4e69"},
-    {file = "esguard-0.1.3.tar.gz", hash = "sha256:1502199a963f373af2d8db284252fd7d889f3ba548cb9c91504f603e66481f0d"},
+    {file = "esguard-0.1.5-py3-none-any.whl", hash = "sha256:ff4288d4f3f7cd2b4e0951d1a97e8de5ca5b515cceca6d9ca51d011d85e6df21"},
+    {file = "esguard-0.1.5.tar.gz", hash = "sha256:263e29e23e42bebddbc7389253b325feab957323e27d5aff7de924eabba7564f"},
 ]
 idna = [
     {file = "idna-3.2-py3-none-any.whl", hash = "sha256:14475042e284991034cb48e06f6851428fb14c4dc953acd9be9a5e95c7b6dd7a"},
@@ -180,11 +196,15 @@ six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
+tenacity = [
+    {file = "tenacity-8.0.1-py3-none-any.whl", hash = "sha256:f78f4ea81b0fabc06728c11dc2a8c01277bfc5181b321a4770471902e3eb844a"},
+    {file = "tenacity-8.0.1.tar.gz", hash = "sha256:43242a20e3e73291a28bcbcacfd6e000b02d3857a9a9fff56b297a27afdc932f"},
+]
 urllib3 = [
     {file = "urllib3-1.26.6-py2.py3-none-any.whl", hash = "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4"},
     {file = "urllib3-1.26.6.tar.gz", hash = "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"},
 ]
 websocket-client = [
-    {file = "websocket-client-1.1.0.tar.gz", hash = "sha256:b68e4959d704768fa20e35c9d508c8dc2bbc041fd8d267c0d7345cffe2824568"},
-    {file = "websocket_client-1.1.0-py2.py3-none-any.whl", hash = "sha256:e5c333bfa9fa739538b652b6f8c8fc2559f1d364243c8a689d7c0e1d41c2e611"},
+    {file = "websocket-client-1.2.1.tar.gz", hash = "sha256:8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"},
+    {file = "websocket_client-1.2.1-py2.py3-none-any.whl", hash = "sha256:0133d2f784858e59959ce82ddac316634229da55b498aac311f1620567a710ec"},
 ]
