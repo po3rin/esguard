@@ -83,7 +83,7 @@ class ESGuard:
     def decotator(self, func: F) -> F:
         retryer = self._get_retryer()
 
-        def wrapper(*args, **kwds) -> Any:
+        def wrapper(*args: Any, **kwds: Any) -> Any:
             try:
                 retryer(self._wait)
             except RetryError:
