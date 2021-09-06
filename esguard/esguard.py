@@ -65,17 +65,15 @@ class ESGuard:
     def _get_retryer(self):
         return Retrying(wait=wait_exponential(min=self.retry_backoff_sec) + wait_random(min=0, max=1), stop=stop_after_attempt(self.max_retries))
 
-    def decotator(self) -> F:
+    def decotator(self, func: F) -> F:
         retryer = self._get_retryer()
 
-        def _retry(func: F) -> F:
-            def wrapper(*args, **kwargs) -> Any:
-                try:
-                    retryer(self._wait)
-                except RetryError:
-                    raise MaxRetriesExceededError(f"max retries exceeded {self.max_retries}")
-                return func(*args, **kwargs)
+        def wrapper(*args, **kwds):
+            try:
+                retryer(self._wait)
+            except RetryError:
+                raise MaxRetriesExceededError(f"max retries exceeded {self.max_retries}")
+            return func(*args, **kwds)
 
-            return cast(F, wrapper)
+        return cast(F, wrapper)
 
-        return _retry
