@@ -44,36 +44,51 @@ class ESGuard:
             return
         self.logger.warning(message)
 
-    def _wait(self):
+    def _wait(self) -> None:
         res = self.es.nodes.stats(metric=["os", "jvm"])
         for k in res["nodes"].keys():
             cpu = res["nodes"][k]["os"]["cpu"]["percent"]
             if cpu >= self.os_cpu_percent and self.os_cpu_percent > 0:
-                self._warning(f"node({k}) OS CPU usage {cpu}% over {self.os_cpu_percent}% ")
-                raise ResourceUsageError(f"node({k}) OS CPU usage {cpu}% over {self.os_cpu_percent}% ")
+                self._warning(
+                    f"node({k}) OS CPU usage {cpu}% over {self.os_cpu_percent}% "
+                )
+                raise ResourceUsageError(
+                    f"node({k}) OS CPU usage {cpu}% over {self.os_cpu_percent}% "
+                )
 
             mem = res["nodes"][k]["os"]["mem"]["used_percent"]
             if mem >= self.os_mem_used_percent and self.os_mem_used_percent > 0:
-                self._warning(f"node({k}) OS MEM usage {mem}% over {self.os_mem_used_percent}% ")
-                raise ResourceUsageError(f"node({k}) OS MEM usage {mem}% over {self.os_mem_used_percent}% ")
+                self._warning(
+                    f"node({k}) OS MEM usage {mem}% over {self.os_mem_used_percent}% "
+                )
+                raise ResourceUsageError(
+                    f"node({k}) OS MEM usage {mem}% over {self.os_mem_used_percent}% "
+                )
 
             jvm_heap = res["nodes"][k]["jvm"]["mem"]["heap_used_percent"]
-            if (jvm_heap >= self.jvm_mem_heap_used_percent and self.jvm_mem_heap_used_percent > 0):
-                self._warning(f"node({k}) JVM heap usage {jvm_heap}% over {self.jvm_mem_heap_used_percent}% ")
-                raise ResourceUsageError(f"node({k}) JVM heap usage {jvm_heap}% over {self.jvm_mem_heap_used_percent}% ")
+            if (jvm_heap >= self.jvm_mem_heap_used_percent
+                    and self.jvm_mem_heap_used_percent > 0):
+                self._warning(
+                    f"node({k}) JVM heap usage {jvm_heap}% over {self.jvm_mem_heap_used_percent}% "
+                )
+                raise ResourceUsageError(
+                    f"node({k}) JVM heap usage {jvm_heap}% over {self.jvm_mem_heap_used_percent}% "
+                )
 
-    def _get_retryer(self):
-        return Retrying(wait=wait_exponential(min=self.retry_backoff_sec) + wait_random(min=0, max=1), stop=stop_after_attempt(self.max_retries))
+    def _get_retryer(self) -> Callable:
+        return Retrying(wait=wait_exponential(min=self.retry_backoff_sec) +
+                        wait_random(min=0, max=1),
+                        stop=stop_after_attempt(self.max_retries))
 
     def decotator(self, func: F) -> F:
         retryer = self._get_retryer()
 
-        def wrapper(*args, **kwds):
+        def wrapper(*args, **kwds) -> Any:
             try:
                 retryer(self._wait)
             except RetryError:
-                raise MaxRetriesExceededError(f"max retries exceeded {self.max_retries}")
+                raise MaxRetriesExceededError(
+                    f"max retries exceeded {self.max_retries}")
             return func(*args, **kwds)
 
         return cast(F, wrapper)
-
