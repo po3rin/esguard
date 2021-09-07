@@ -80,7 +80,7 @@ class ESGuard:
                         wait_random(min=0, max=1),
                         stop=stop_after_attempt(self.max_retries))
 
-    def decotator(self, func: F) -> F:
+    def decorator(self, func: F) -> F:
         retryer = self._get_retryer()
 
         def wrapper(*args: Any, **kwds: Any) -> Any:

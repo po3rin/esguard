@@ -6,7 +6,7 @@ authors = ["po3rin"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-esguard = "^0.1.5"
+esguard = "^0.1.8"
 
 [tool.poetry.dev-dependencies]
 
