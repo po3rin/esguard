@@ -1,7 +1,7 @@
 from esguard import ESGuard
 
 
-@ESGuard(os_cpu_percent=5, os_mem_used_percent=0, jvm_mem_heap_used_percent=0).decorator
+@ESGuard(os_cpu_percent=0, os_mem_used_percent=0, jvm_mem_heap_used_percent=0).decorator
 def f(x: int) -> int:
     return x
 
