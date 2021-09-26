@@ -21,6 +21,16 @@ def mock_func(x):
 self.assertEqual(mock_func(1), 1)
 ```
 
+## Supports
+
+- [x] os cpu usage
+- [x] os mem usaged percent
+- [x] jvm mem heap used percent
+- [x] os load average 1m
+- [ ] os load average 5m
+- [ ] os load average 15m
+
+
 ## Test
 
 You need to launch elasticsearch before testing.
