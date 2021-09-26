@@ -47,13 +47,14 @@ class ESGuard:
     def _wait(self) -> None:
         res = self.es.nodes.stats(metric=["os", "jvm"])
         for k in res["nodes"].keys():
-            cpu = res["nodes"][k]["os"]["cpu"]["percent"]
-            if cpu >= self.os_cpu_percent and self.os_cpu_percent > 0:
+            cpu = res["nodes"][k]["os"]["cpu"]["load_average"]["1m"]
+            cpu_percent = cpu * 100
+            if cpu_percent >= self.os_cpu_percent and self.os_cpu_percent > 0:
                 self._warning(
-                    f"node({k}) OS CPU usage {cpu}% over {self.os_cpu_percent}% "
+                    f"node({k}) OS CPU load_average 1m {cpu_percent}% over {self.os_cpu_percent}% "
                 )
                 raise ResourceUsageError(
-                    f"node({k}) OS CPU usage {cpu}% over {self.os_cpu_percent}% "
+                    f"node({k}) OS CPU load_average 1m {cpu_percent}% over {self.os_cpu_percent}% "
                 )
 
             mem = res["nodes"][k]["os"]["mem"]["used_percent"]
