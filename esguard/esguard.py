@@ -25,6 +25,7 @@ class ESGuard:
         self,
         es: Elasticsearch = Elasticsearch(),
         os_cpu_percent: int = 90,
+        os_cpu_load_average_1m: float = -1,
         os_mem_used_percent: int = -1,
         jvm_mem_heap_used_percent: int = 90,
         retry_backoff_sec: int = 1,
@@ -34,6 +35,7 @@ class ESGuard:
         self.logger = logger
         self.es = es
         self.os_cpu_percent = os_cpu_percent
+        self.os_cpu_load_average_1m = os_cpu_load_average_1m
         self.os_mem_used_percent = os_mem_used_percent
         self.jvm_mem_heap_used_percent = jvm_mem_heap_used_percent
         self.retry_backoff_sec = retry_backoff_sec
@@ -54,6 +56,15 @@ class ESGuard:
                 )
                 raise ResourceUsageError(
                     f"node({k}) OS CPU usage {cpu}% over {self.os_cpu_percent}% "
+                )
+
+            cpu_load_avg = res["nodes"][k]["os"]["cpu"]["load_average"]["1m"]
+            if cpu_load_avg >= self.os_cpu_load_average_1m and self.os_cpu_load_average_1m > 0:
+                self._warning(
+                    f"node({k}) OS CPU load_average 1m {cpu_load_avg}% over {self.os_cpu_load_average_1m}% "
+                )
+                raise ResourceUsageError(
+                    f"node({k}) OS CPU load_average 1m {cpu_load_avg}% over {self.os_cpu_load_average_1m}% "
                 )
 
             mem = res["nodes"][k]["os"]["mem"]["used_percent"]

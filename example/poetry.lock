@@ -8,7 +8,7 @@ python-versions = "*"
 
 [[package]]
 name = "charset-normalizer"
-version = "2.0.4"
+version = "2.0.6"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 category = "main"
 optional = false
@@ -19,7 +19,7 @@ unicode_backport = ["unicodedata2"]
 
 [[package]]
 name = "docker"
-version = "5.0.1"
+version = "5.0.2"
 description = "A Python library for the Docker Engine API."
 category = "main"
 optional = false
@@ -36,7 +36,7 @@ tls = ["pyOpenSSL (>=17.5.0)", "cryptography (>=3.4.7)", "idna (>=2.0.0)"]
 
 [[package]]
 name = "elasticsearch"
-version = "7.14.0"
+version = "7.15.0"
 description = "Python client for Elasticsearch"
 category = "main"
 optional = false
@@ -54,7 +54,7 @@ requests = ["requests (>=2.4.0,<3.0.0)"]
 
 [[package]]
 name = "esguard"
-version = "0.1.5"
+version = "0.1.9"
 description = "esguard provides a Python decorator that waits for processing while monitoring the load of Elasticsearch."
 category = "main"
 optional = false
@@ -121,7 +121,7 @@ doc = ["reno", "sphinx", "tornado (>=4.5)"]
 
 [[package]]
 name = "urllib3"
-version = "1.26.6"
+version = "1.26.7"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
 optional = false
@@ -147,7 +147,7 @@ test = ["websockets"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "1efb280cae90915b589e46f58f8ad7a7ef7f2665664043d5cba9eac1072778d0"
+content-hash = "f923622aba451621f269fd80a407c820d7f293c9cf6c08f9adf51386bb98938a"
 
 [metadata.files]
 certifi = [
@@ -155,20 +155,20 @@ certifi = [
     {file = "certifi-2021.5.30.tar.gz", hash = "sha256:2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"},
 ]
 charset-normalizer = [
-    {file = "charset-normalizer-2.0.4.tar.gz", hash = "sha256:f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"},
-    {file = "charset_normalizer-2.0.4-py3-none-any.whl", hash = "sha256:0c8911edd15d19223366a194a513099a302055a962bca2cec0f54b8b63175d8b"},
+    {file = "charset-normalizer-2.0.6.tar.gz", hash = "sha256:5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"},
+    {file = "charset_normalizer-2.0.6-py3-none-any.whl", hash = "sha256:5d209c0a931f215cee683b6445e2d77677e7e75e159f78def0db09d68fafcaa6"},
 ]
 docker = [
-    {file = "docker-5.0.1-py2.py3-none-any.whl", hash = "sha256:b88eef725b33c0ed59c67506631bbb09b480b7ca5a739bbbb948b446443fe914"},
-    {file = "docker-5.0.1.tar.gz", hash = "sha256:5aafaec0d2a1de0e32010b43b5eac9f6f851c9db99a46ad32b8e44eeeb55616d"},
+    {file = "docker-5.0.2-py2.py3-none-any.whl", hash = "sha256:9b17f0723d83c1f3418d2aa17bf90b24dbe97deda06208dd4262fa30a6ee87eb"},
+    {file = "docker-5.0.2.tar.gz", hash = "sha256:21ec4998e90dff7a7aaaa098ca8d839c7de412b89e6f6c30908372d58fecf663"},
 ]
 elasticsearch = [
-    {file = "elasticsearch-7.14.0-py2.py3-none-any.whl", hash = "sha256:084979d21cc2955903ecc215bb40b8180207b2bcb5e52ec0ec7dd6f60affd01e"},
-    {file = "elasticsearch-7.14.0.tar.gz", hash = "sha256:f3ab1454e646170bbc6796b8707e4bff125234391d2acc022221e1c0313becb4"},
+    {file = "elasticsearch-7.15.0-py2.py3-none-any.whl", hash = "sha256:bf1d210d82c78fbd3ae5cbedd756716d732433cc97184966688dcd1c75df4619"},
+    {file = "elasticsearch-7.15.0.tar.gz", hash = "sha256:6c47eb68f643f3d7d6a6d971e571448b900b9470dc481421c9af9d28a1303911"},
 ]
 esguard = [
-    {file = "esguard-0.1.5-py3-none-any.whl", hash = "sha256:ff4288d4f3f7cd2b4e0951d1a97e8de5ca5b515cceca6d9ca51d011d85e6df21"},
-    {file = "esguard-0.1.5.tar.gz", hash = "sha256:263e29e23e42bebddbc7389253b325feab957323e27d5aff7de924eabba7564f"},
+    {file = "esguard-0.1.9-py3-none-any.whl", hash = "sha256:afa7fd879503fd9a97f15148a9fa5477ef454a73fd55ae48cd0893ba1c2521de"},
+    {file = "esguard-0.1.9.tar.gz", hash = "sha256:1a5fc738dcca1602c5120b76b1f034d2d4ddea8cbc6e2eb885793b1c341bc58f"},
 ]
 idna = [
     {file = "idna-3.2-py3-none-any.whl", hash = "sha256:14475042e284991034cb48e06f6851428fb14c4dc953acd9be9a5e95c7b6dd7a"},
@@ -201,8 +201,8 @@ tenacity = [
     {file = "tenacity-8.0.1.tar.gz", hash = "sha256:43242a20e3e73291a28bcbcacfd6e000b02d3857a9a9fff56b297a27afdc932f"},
 ]
 urllib3 = [
-    {file = "urllib3-1.26.6-py2.py3-none-any.whl", hash = "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4"},
-    {file = "urllib3-1.26.6.tar.gz", hash = "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"},
+    {file = "urllib3-1.26.7-py2.py3-none-any.whl", hash = "sha256:c4fdf4019605b6e5423637e01bc9fe4daef873709a7973e195ceba0a62bbc844"},
+    {file = "urllib3-1.26.7.tar.gz", hash = "sha256:4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"},
 ]
 websocket-client = [
     {file = "websocket-client-1.2.1.tar.gz", hash = "sha256:8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"},
