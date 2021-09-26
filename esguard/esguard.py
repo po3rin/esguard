@@ -25,7 +25,7 @@ class ESGuard:
         self,
         es: Elasticsearch = Elasticsearch(),
         os_cpu_percent: int = 90,
-        os_cpu_load_average_1m: float = 0.9,
+        os_cpu_load_average_1m: float = -1,
         os_mem_used_percent: int = -1,
         jvm_mem_heap_used_percent: int = 90,
         retry_backoff_sec: int = 1,
